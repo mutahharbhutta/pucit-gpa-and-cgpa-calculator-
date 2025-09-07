@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PUCIT GPA Calculator</title>
+  <meta name="description" content="Calculate your semester GPA based on subject marks and credit hours."/>
+  <meta name="author" content="Mutahhar Bhutta"/>
+  <meta name="keywords" content="GPA Calculator, PUCIT, GPA, University of the Punjab"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" type="image/png" href="logo.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body class="theme-ocean" data-page="gpa">
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="logo-section">
+        <div class="logo"><img src="logo.png" width="50" height="50" alt="PUCIT Logo"/></div>
+        <div class="brand-text">
+          <h1>PUCIT Calculator</h1>
+          <p>GPA & CGPA Made Simple</p>
+        </div>
+      </div>
+      <div class="header-controls">
+        <button class="theme-btn" id="themeBtn">
+          <span>🎨</span><span>Themes</span>
+        </button>
+        <button class="mode-toggle" id="modeToggle">☀️</button>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <!-- Calculator Section -->
+      <div class="calculator-section">
+        <!-- Simple page switcher (links instead of tabs) -->
+        <div class="tabs">
+          <a href="gpa.html" class="tab-btn active" aria-current="page">GPA Calculator</a>
+          <a href="cgpa.html" class="tab-btn">CGPA Calculator</a>
+        </div>
+
+        <div class="tab-panel active" id="gpa-panel">
+          <h2 class="panel-title">GPA Calculator</h2>
+          <p class="panel-subtitle">Calculate your semester GPA based on individual subject marks and credit hours</p>
+
+          <div class="form-group">
+            <label class="form-label">Number of Subjects (including labs)</label>
+            <input type="number" id="subjectCount" class="form-input" min="1" max="20" placeholder="Enter number of subjects" required/>
+          </div>
+
+          <button class="btn btn-primary" id="generateSubjectsBtn">
+            <span></span>Generate Subject Fields
+          </button>
+
+          <div id="subjectsContainer" class="subjects-container"></div>
+          <div id="gpaResult" class="result-message"></div>
+        </div>
+      </div>
+
+      <!-- Result Panel -->
+      <div class="result-panel">
+        <div class="result-header">
+          <h3 class="result-title" id="resultTitle">Your GPA</h3>
+          <p class="result-subtitle">Live calculation as you type</p>
+        </div>
+
+        <!-- Progress Circle -->
+        <div class="progress-circle">
+          <svg class="progress-ring" width="200" height="200" role="img" aria-label="GPA progress">
+            <defs>
+              <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:var(--primary);stop-opacity:1"/>
+                <stop offset="100%" style="stop-color:var(--primary-light);stop-opacity:1"/>
+              </linearGradient>
+            </defs>
+            <circle class="progress-ring-bg" cx="100" cy="100" r="90"/>
+            <circle id="progressRingFill" class="progress-ring-fill" cx="100" cy="100" r="90"/>
+          </svg>
+          <div class="progress-text">
+            <div class="progress-value" id="progressValue">0.00</div>
+            <div class="progress-label" id="progressLabel">GPA</div>
+          </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" id="statValue">0.00</div>
+            <div class="stat-label">Current</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">4.00</div>
+            <div class="stat-label">Maximum</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="auxValue">0</div>
+            <div class="stat-label" id="auxLabel">Credits</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="gradeValue">-</div>
+            <div class="stat-label">Grade</div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="result-actions">
+          <button class="btn btn-primary btn-icon" id="copyBtn">
+            <span></span>Copy Result
+          </button>
+          <button class="btn btn-secondary btn-icon" id="exportBtn">
+            <span></span>Export Result
+          </button>
+          <button class="btn btn-secondary btn-icon" id="resetBtn">
+            <span></span>Reset All
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Keep calm, GPA is just a number</p>
+      <p>Built with <span class="footer-heart">❤️</span> by <a href="https://github.com/mutahharbhutta">Mutahhar Bhutta</a></p>
+      <p>&copy; 2025 All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
